@@ -1,0 +1,28 @@
+# Cargo build output
+/target/
+/build/
+
+# Temporary and editor files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+
+# Environment and secret files
+.env
+.env.*
+!.env.example
+*.secret
+secrets.*
+*credentials*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Cargo.lock is intentionally tracked for this binary application.
