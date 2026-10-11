@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [master, develop]
+  pull_request:
+    branches: [master, develop]
+
+jobs:
+  build-and-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Make Linux/macOS script executable
+        if: runner.os != 'Windows'
+        shell: bash
+        run: chmod +x ci.sh
+
+      - name: Run Linux/macOS build and tests
+        if: runner.os != 'Windows'
+        shell: bash
+        run: ./ci.sh
+
+      - name: Run Windows build and tests
+        if: runner.os == 'Windows'
+        shell: cmd
+        run: ci.bat
