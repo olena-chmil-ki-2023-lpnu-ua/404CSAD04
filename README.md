@@ -2,7 +2,7 @@
 
 ## Student Information
 
-- Full Name: Chmil Olena Petrivna
+- Full Name: Chmil Olena Pavlivna
 - Group: KI-404
 - University: Lviv Polytechnic National University
 - Variant: 4
